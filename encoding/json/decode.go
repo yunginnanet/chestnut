@@ -3,8 +3,8 @@ package json
 import (
 	"errors"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
-	"github.com/jrapoport/chestnut/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
 )
 
 // SecureUnmarshal decrypts & parses the JSON-encoded data returned by SecureUnmarshal and stores
@@ -14,7 +14,7 @@ import (
 // fields will be encrypted. The remaining encoded data stored as sparse plaintext. If SecureUnmarshal
 // is called on a sparse encoding with the sparse option set, SecureUnmarshal will skip the decryption
 // step and return only the plaintext decoding of v with encrypted fields replaced by empty values.
-// For more detail, SEE: https://github.com/jrapoport/chestnut/blob/master/README.md
+// For more detail, SEE: https://git.tcp.direct/kayos/chestnut-bitcask/blob/master/README.md
 func SecureUnmarshal(data []byte, v interface{}, decryptFunc secure.DecryptionFunction, opt ...secure.Option) error {
 	if v == nil {
 		return errors.New("nil value")

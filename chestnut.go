@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/jrapoport/chestnut/encoding/compress"
-	"github.com/jrapoport/chestnut/encoding/compress/zstd"
-	"github.com/jrapoport/chestnut/encoding/json"
-	"github.com/jrapoport/chestnut/encoding/json/encoders/secure"
-	"github.com/jrapoport/chestnut/log"
-	"github.com/jrapoport/chestnut/storage"
-	"github.com/jrapoport/chestnut/value"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage"
+	"git.tcp.direct/kayos/chestnut-bitcask/value"
 )
 
 // Chestnut is used to manage an encrypted store. It provides additional features such
 // as chained encryption, independently secured secrets, sparse encryption, and hashing.
-// For more detail, SEE: https://github.com/jrapoport/chestnut/blob/master/README.md
+// For more detail, SEE: https://git.tcp.direct/kayos/chestnut-bitcask/blob/master/README.md
 type Chestnut struct {
 	opts  ChestOptions
 	store storage.Storage

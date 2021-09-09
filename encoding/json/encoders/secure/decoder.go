@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
-	"github.com/jrapoport/chestnut/encoding/json/encoders/lookup"
-	"github.com/jrapoport/chestnut/encoding/json/packager"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/lookup"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/packager"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/modern-go/reflect2"
 )
@@ -31,7 +31,7 @@ var PassthroughDecryption DecryptionFunction = func(ciphertext []byte) ([]byte, 
 // encoded data. It supports full encryption / decryption of the encoded block in in
 // addition to sparse encryption and hashing of structs on a per field basis via supplementary
 // JSON struct field tag options. For addition information sparse encryption & hashing, please
-// SEE: https://github.com/jrapoport/chestnut/blob/master/README.md
+// SEE: https://git.tcp.direct/kayos/chestnut-bitcask/blob/master/README.md
 //
 // For additional information on json-iterator extensions, please
 // SEE: https://github.com/json-iterator/go/wiki/Extension

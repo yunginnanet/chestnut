@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/jrapoport/chestnut/encoding/compress"
-	"github.com/jrapoport/chestnut/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
 	"github.com/stretchr/testify/assert"
 )
 

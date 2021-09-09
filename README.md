@@ -8,6 +8,7 @@
 
 [![Buy Me A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-☕-6F4E37?style=flat-square)](https://www.buymeacoffee.com/jrapoport)
 
+** this repo (chestnut-bitcask) is merely a mirror of chestnut with a bitcask storage backend (currently poorly) implemented **
 
 Chestnut is encrypted storage for Go. The goal was an easy to use encrypted 
 store with helpful features that was quick to set up, but highly flexible. 

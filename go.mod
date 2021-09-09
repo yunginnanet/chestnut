@@ -1,4 +1,4 @@
-module github.com/jrapoport/chestnut
+module git.tcp.direct/kayos/chestnut-bitcask
 
 go 1.17
 

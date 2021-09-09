@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-version"
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
 )
 
 const (

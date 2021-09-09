@@ -6,7 +6,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/modern-go/reflect2"
 	"github.com/stretchr/testify/assert"

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"unsafe"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/modern-go/reflect2"
 )

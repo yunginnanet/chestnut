@@ -4,9 +4,9 @@ import (
 	"errors"
 
 	"github.com/ipfs/go-ipfs-keystore"
-	"github.com/jrapoport/chestnut"
-	"github.com/jrapoport/chestnut/log"
-	"github.com/jrapoport/chestnut/storage"
+	"git.tcp.direct/kayos/chestnut-bitcask"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage"
 	ci "github.com/libp2p/go-libp2p-core/crypto"
 )
 

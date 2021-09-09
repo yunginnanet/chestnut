@@ -2,12 +2,12 @@ package secure
 
 import (
 	"errors"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 	"reflect"
 	"testing"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
-	"github.com/jrapoport/chestnut/encoding/json/packager"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/packager"
 	"github.com/stretchr/testify/assert"
 )
 

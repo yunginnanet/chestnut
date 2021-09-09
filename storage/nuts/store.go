@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/jrapoport/chestnut/log"
-	"github.com/jrapoport/chestnut/storage"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/xujiajun/nutsdb"
 )

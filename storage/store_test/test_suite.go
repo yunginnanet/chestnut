@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/jrapoport/chestnut/log"
-	"github.com/jrapoport/chestnut/storage"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 )

@@ -2,11 +2,11 @@ package lookup
 
 import (
 	"fmt"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 	jsoniter "github.com/json-iterator/go"
 	"testing"
 
-	"github.com/jrapoport/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
 	"github.com/modern-go/reflect2"
 	"github.com/stretchr/testify/assert"
 )

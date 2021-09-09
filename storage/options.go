@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/jrapoport/chestnut/log"
+import "git.tcp.direct/kayos/chestnut-bitcask/log"
 
 // StoreOptions provides a default implementation for common storage Options stores should support.
 type StoreOptions struct {

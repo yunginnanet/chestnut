@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jrapoport/chestnut"
-	"github.com/jrapoport/chestnut/encryptor/aes"
-	"github.com/jrapoport/chestnut/encryptor/crypto"
-	"github.com/jrapoport/chestnut/storage/nuts"
+	"git.tcp.direct/kayos/chestnut-bitcask"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/aes"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage/nuts"
 )
 
 func main() {

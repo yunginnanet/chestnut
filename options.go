@@ -1,10 +1,10 @@
 package chestnut
 
 import (
-	"github.com/jrapoport/chestnut/encoding/compress"
-	"github.com/jrapoport/chestnut/encryptor"
-	"github.com/jrapoport/chestnut/encryptor/crypto"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 )
 
 // ChestOptions provides a default implementation for common options for a secure store.

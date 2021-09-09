@@ -3,8 +3,8 @@ package encryptor
 import (
 	"fmt"
 
-	"github.com/jrapoport/chestnut/encryptor/aes"
-	"github.com/jrapoport/chestnut/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/aes"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
 )
 
 // AESEncryptor is an encryptor that supports the

@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/jrapoport/chestnut/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,9 +1,9 @@
 package secure
 
 import (
-	"github.com/jrapoport/chestnut/encoding/compress"
-	"github.com/jrapoport/chestnut/encoding/compress/zstd"
-	"github.com/jrapoport/chestnut/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
+	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
 )
 
 // Options provides a default implementation for common options for a secure encoding.
