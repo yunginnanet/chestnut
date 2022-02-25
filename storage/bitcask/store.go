@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"git.tcp.direct/Mirrors/bitcask-mirror"
+	"git.tcp.direct/tcp.direct/database/bitcask"
 	jsoniter "github.com/json-iterator/go"
 
 	"git.tcp.direct/kayos/chestnut/log"
@@ -22,7 +22,7 @@ const (
 type bitcaskStore struct {
 	opts storage.StoreOptions
 	path string
-	db   *bitcask.Bitcask
+	db   *bitcask.DB
 	log  log.Logger
 }
 
@@ -44,7 +44,6 @@ func (s *bitcaskStore) Options() storage.StoreOptions {
 }
 
 // Open opens the store.
-
 func (s *bitcaskStore) Open() (err error) {
 	s.log.Debugf("opening store at path: %s", s.path)
 	var path string
@@ -53,11 +52,8 @@ func (s *bitcaskStore) Open() (err error) {
 		err = s.logError("open", err)
 		return
 	}
-	s.db, err = bitcask.Open(path)
-	if err != nil {
-		err = s.logError("open", err)
-		return
-	}
+	s.db = bitcask.OpenDB(path)
+
 	if s.db == nil {
 		err = errors.New("unable to open backing store")
 		err = s.logError("open", err)
@@ -69,17 +65,15 @@ func (s *bitcaskStore) Open() (err error) {
 
 // Put an entry in the store.
 func (s *bitcaskStore) Put(name string, key []byte, value []byte) error {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	s.log.Debugf("put: %d value bytes to key: %s", len(value), key)
-	return s.logError("put", s.db.Put(key, value))
+	return s.logError("put", s.db.With(name).Put(key, value))
 }
 
 // Get a value from the store.
 func (s *bitcaskStore) Get(name string, key []byte) ([]byte, error) {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	var value []byte
 	var err error
-	if value, err = s.db.Get(key); err != nil {
+	if value, err = s.db.With(name).Get(key); err != nil {
 		return value, s.logError("load", err)
 	}
 	return value, nil
@@ -87,18 +81,16 @@ func (s *bitcaskStore) Get(name string, key []byte) ([]byte, error) {
 
 // Save the value in v and store the result at key.
 func (s *bitcaskStore) Save(name string, key []byte, v interface{}) error {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	b, err := jsoniter.Marshal(v)
 	if err != nil {
 		return s.logError("save", err)
 	}
-	return s.db.Put(key, b)
+	return s.db.With(name).Put(key, b)
 }
 
 // Load the value at key and stores the result in v.
 func (s *bitcaskStore) Load(name string, key []byte, v interface{}) error {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
-	b, err := s.db.Get(key)
+	b, err := s.db.With(name).Get(key)
 	if err != nil {
 		return s.logError("load", err)
 	}
@@ -107,30 +99,26 @@ func (s *bitcaskStore) Load(name string, key []byte, v interface{}) error {
 
 // Has checks for a key in the store.
 func (s *bitcaskStore) Has(name string, key []byte) (bool, error) {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	s.log.Debugf("has: key: %s", key)
-	return s.db.Has(key), nil
+	return s.db.With(name).Has(key), nil
 }
 
 // Delete removes a key from the store.
 func (s *bitcaskStore) Delete(name string, key []byte) error {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	s.log.Debugf("delete: key: %s", key)
-	return s.db.Delete(key)
+	return s.db.With(name).Delete(key)
 }
 
 // List returns a list of all keys in the namespace.
 func (s *bitcaskStore) List(name string) (keys [][]byte, err error) {
-	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	s.log.Debugf("list: keys in bitcask storage")
-	bkeys := s.db.Keys()
+	bkeys := s.db.With(name).Keys()
 	select {
 	case key := <-bkeys:
 		keys = append(keys, key)
 	default:
 	}
-
-	s.log.Debugf("list: found %d keys: %s", s.db.Len(), keys)
+	s.log.Debugf("list: found %d keys: %s", s.db.With(name).Len(), keys)
 	return
 }
 
@@ -156,13 +144,13 @@ func (s *bitcaskStore) Export(path string) error {
 		var err error
 		path, err = ensureDBPath(path)*/
 
-	return errors.New("Export is not yet implemented for bitcask stores")
+	return errors.New("export is not yet implemented for bitcask stores")
 }
 
 // Close closes the datastore and releases all db resources.
 func (s *bitcaskStore) Close() error {
 	s.log.Debugf("closing store at path: %s", s.path)
-	err := s.db.Close()
+	err := s.db.CloseAll()
 	s.db = nil
 	s.log.Info("store closed")
 	return s.logError("close", err)
