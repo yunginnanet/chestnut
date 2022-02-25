@@ -1,8 +1,5 @@
 package log
 
-// Log is the same as the default standard logger from "log".
-var Log = NewStdLoggerWithLevel(PanicLevel)
-
 // Logger is a generic logger interface.
 type Logger interface {
 	// Debug logs args when the logger level is debug.

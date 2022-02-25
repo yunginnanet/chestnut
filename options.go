@@ -152,9 +152,9 @@ func WithStdLogger(lvl log.Level) ChestOption {
 	return WithLogger(log.NewStdLoggerWithLevel(lvl))
 }
 
-// WithLogrusLogger is a convenience that returns a StoreOption for a default logrus logger.
-func WithLogrusLogger(lvl log.Level) ChestOption {
-	return WithLogger(log.NewLogrusLoggerWithLevel(lvl))
+// WithZerologLogger is a convenience that returns a StoreOption for a default Zerolog logger.
+func WithZerologLogger(lvl log.Level) ChestOption {
+	return WithLogger(log.NewZerologLoggerWithLevel(lvl))
 }
 
 // WithZapLogger is a convenience that returns a StoreOption for a production zap logger.

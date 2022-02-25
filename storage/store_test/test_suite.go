@@ -6,10 +6,11 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
+
+	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut-bitcask/storage"
 )
 
 type testCase struct {
@@ -247,7 +248,7 @@ func (ts *storeTestSuite) TestStoreWithLogger() {
 	}
 	type LoggerOpt func(log.Level) storage.StoreOption
 	logOpts := []LoggerOpt{
-		storage.WithLogrusLogger,
+		storage.WithZerologLogger,
 		storage.WithStdLogger,
 		storage.WithZapLogger,
 	}

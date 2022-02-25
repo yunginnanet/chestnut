@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"git.tcp.direct/tcp.direct/bitcask-mirror"
+	"git.tcp.direct/Mirrors/bitcask-mirror"
 	jsoniter "github.com/json-iterator/go"
 
 	"git.tcp.direct/kayos/chestnut-bitcask/log"

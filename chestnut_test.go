@@ -8,6 +8,9 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/suite"
+
 	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
 	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
 	"git.tcp.direct/kayos/chestnut-bitcask/encryptor"
@@ -18,8 +21,6 @@ import (
 	"git.tcp.direct/kayos/chestnut-bitcask/storage/bolt"
 	"git.tcp.direct/kayos/chestnut-bitcask/storage/nuts"
 	"git.tcp.direct/kayos/chestnut-bitcask/value"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/suite"
 )
 
 type TObject struct {
@@ -606,7 +607,7 @@ func (ts *ChestnutTestSuite) TestChestnut_WithLogger() {
 	}
 	type LoggerOpt func(log.Level) ChestOption
 	logOpts := []LoggerOpt{
-		WithLogrusLogger,
+		WithZerologLogger,
 		WithStdLogger,
 		WithZapLogger,
 	}
