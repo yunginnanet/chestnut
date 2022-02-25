@@ -1,6 +1,6 @@
 package storage
 
-import "git.tcp.direct/kayos/chestnut-bitcask/log"
+import "git.tcp.direct/kayos/chestnut/log"
 
 // StoreOptions provides a default implementation for common storage Options stores should support.
 type StoreOptions struct {
@@ -14,7 +14,7 @@ func (o StoreOptions) Logger() log.Logger {
 
 // DefaultStoreOptions represents the recommended default StoreOptions for a store.
 var DefaultStoreOptions = StoreOptions{
-	log: log.Log,
+	log: log.NewZerologLoggerWithLevel(log.DebugLevel),
 }
 
 // A StoreOption sets options such disabling overwrite, and other parameters, etc.
@@ -62,15 +62,10 @@ func WithLogger(l log.Logger) StoreOption {
 
 // WithStdLogger is a convenience that returns a StoreOption for a standard err logger.
 func WithStdLogger(lvl log.Level) StoreOption {
-	return WithLogger(log.NewStdLoggerWithLevel(lvl))
+	return WithLogger(log.NewZerologLoggerWithLevel(lvl))
 }
 
 // WithZerologLogger is a convenience that returns a StoreOption for a default Zerolog logger.
 func WithZerologLogger(lvl log.Level) StoreOption {
 	return WithLogger(log.NewZerologLoggerWithLevel(lvl))
-}
-
-// WithZapLogger is a convenience that returns a StoreOption for a production zap logger.
-func WithZapLogger(lvl log.Level) StoreOption {
-	return WithLogger(log.NewZapLoggerWithLevel(lvl))
 }

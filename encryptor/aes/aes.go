@@ -5,7 +5,7 @@ import (
 	"crypto/cipher"
 	"errors"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 )
 
 // currently supported modes

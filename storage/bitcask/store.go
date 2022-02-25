@@ -9,8 +9,8 @@ import (
 	"git.tcp.direct/Mirrors/bitcask-mirror"
 	jsoniter "github.com/json-iterator/go"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage"
+	"git.tcp.direct/kayos/chestnut/log"
+	"git.tcp.direct/kayos/chestnut/storage"
 )
 
 const (
@@ -42,6 +42,7 @@ func NewStore(path string, opt ...storage.StoreOption) storage.Storage {
 func (s *bitcaskStore) Options() storage.StoreOptions {
 	return s.opts
 }
+
 // Open opens the store.
 
 func (s *bitcaskStore) Open() (err error) {
@@ -115,7 +116,7 @@ func (s *bitcaskStore) Has(name string, key []byte) (bool, error) {
 func (s *bitcaskStore) Delete(name string, key []byte) error {
 	s.log.Warnf("bitcask doesn't use name (%s)", name)
 	s.log.Debugf("delete: key: %s", key)
-		return s.db.Delete(key)
+	return s.db.Delete(key)
 }
 
 // List returns a list of all keys in the namespace.
@@ -124,9 +125,9 @@ func (s *bitcaskStore) List(name string) (keys [][]byte, err error) {
 	s.log.Debugf("list: keys in bitcask storage")
 	bkeys := s.db.Keys()
 	select {
-		case key := <- bkeys:
-			keys = append(keys, key)
-		default:
+	case key := <-bkeys:
+		keys = append(keys, key)
+	default:
 	}
 
 	s.log.Debugf("list: found %d keys: %s", s.db.Len(), keys)
@@ -144,17 +145,16 @@ func (s *bitcaskStore) ListAll() (map[string][][]byte, error) {
 
 // Export copies the datastore to directory at path.
 func (s *bitcaskStore) Export(path string) error {
-/*	s.log.Debugf("export: to path: %s", path)
-	if path == "" {
-		err := fmt.Errorf("invalid path: %s", path)
-		return s.logError("export", err)
-	} else if s.path == path {
-		err := fmt.Errorf("path cannot be store path: %s", path)
-		return s.logError("export", err)
-	}
-	var err error
-	path, err = ensureDBPath(path)*/
-
+	/*	s.log.Debugf("export: to path: %s", path)
+		if path == "" {
+			err := fmt.Errorf("invalid path: %s", path)
+			return s.logError("export", err)
+		} else if s.path == path {
+			err := fmt.Errorf("path cannot be store path: %s", path)
+			return s.logError("export", err)
+		}
+		var err error
+		path, err = ensureDBPath(path)*/
 
 	return errors.New("Export is not yet implemented for bitcask stores")
 }

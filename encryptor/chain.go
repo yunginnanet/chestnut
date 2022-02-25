@@ -3,7 +3,7 @@ package encryptor
 import (
 	"strings"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 )
 
 // ChainEncryptor is an encryptor that supports an chain of other Encryptors.

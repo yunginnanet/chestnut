@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"reflect"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage"
-	"git.tcp.direct/kayos/chestnut-bitcask/value"
+	"git.tcp.direct/kayos/chestnut/encoding/compress"
+	"git.tcp.direct/kayos/chestnut/encoding/compress/zstd"
+	"git.tcp.direct/kayos/chestnut/encoding/json"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut/log"
+	"git.tcp.direct/kayos/chestnut/storage"
+	"git.tcp.direct/kayos/chestnut/value"
 )
 
 // Chestnut is used to manage an encrypted store. It provides additional features such
@@ -26,7 +26,7 @@ type Chestnut struct {
 // NewChestnut is used to create a new chestnut encrypted store.
 func NewChestnut(store storage.Storage, opt ...ChestOption) *Chestnut {
 	const logName = "chestnut"
-	//logger := storage.LoggerFromStore(store, logName)
+	// logger := storage.LoggerFromStore(store, logName)
 	opts := applyOptions(DefaultChestOptions, opt...)
 	logger := log.Named(opts.log, logName)
 	cn := &Chestnut{opts, store, logger}
@@ -291,7 +291,7 @@ func (cn *Chestnut) Logger() log.Logger {
 // SetLogger sets the logger for the storage chest
 func (cn *Chestnut) SetLogger(l log.Logger) {
 	if l == nil {
-		l = log.Log
+		l = log.NewZerologLoggerWithLevel(log.DebugLevel)
 	}
 	cn.log = l
 }

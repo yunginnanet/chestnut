@@ -3,7 +3,7 @@ package hash
 import (
 	"testing"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/tags"
+	"git.tcp.direct/kayos/chestnut/encoding/tags"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,7 +3,7 @@ package aes
 import (
 	"crypto/cipher"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 )
 
 var (

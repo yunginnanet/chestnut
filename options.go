@@ -1,10 +1,10 @@
 package chestnut
 
 import (
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut/encoding/compress"
+	"git.tcp.direct/kayos/chestnut/encryptor"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/log"
 )
 
 // ChestOptions provides a default implementation for common options for a secure store.
@@ -149,15 +149,10 @@ func WithLogger(l log.Logger) ChestOption {
 
 // WithStdLogger is a convenience that returns a StoreOption for a standard err logger.
 func WithStdLogger(lvl log.Level) ChestOption {
-	return WithLogger(log.NewStdLoggerWithLevel(lvl))
+	return WithZerologLogger(lvl)
 }
 
 // WithZerologLogger is a convenience that returns a StoreOption for a default Zerolog logger.
 func WithZerologLogger(lvl log.Level) ChestOption {
 	return WithLogger(log.NewZerologLoggerWithLevel(lvl))
-}
-
-// WithZapLogger is a convenience that returns a StoreOption for a production zap logger.
-func WithZapLogger(lvl log.Level) ChestOption {
-	return WithLogger(log.NewZapLoggerWithLevel(lvl))
 }

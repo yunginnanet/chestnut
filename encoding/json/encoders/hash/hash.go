@@ -3,8 +3,8 @@ package hash
 import (
 	"encoding/hex"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/tags"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encoding/tags"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 )
 
 // HashingFunction defines the prototype for the hash callback. Defaults to EncodeToSHA256.

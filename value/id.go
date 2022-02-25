@@ -1,6 +1,6 @@
 package value
 
-import "git.tcp.direct/kayos/chestnut-bitcask/storage"
+import "git.tcp.direct/kayos/chestnut/storage"
 
 // ID provides a implementation of the Keyed interface.
 // It can be embedded in another structure to build custom Keyed values.

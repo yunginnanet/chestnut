@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
+	"git.tcp.direct/kayos/chestnut/encryptor/aes"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 	"github.com/google/uuid"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/aes"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"unsafe"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut/log"
 	jsoniter "github.com/json-iterator/go"
 )
 

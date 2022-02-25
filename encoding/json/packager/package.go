@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
 	"github.com/hashicorp/go-version"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
 )
 
 const (

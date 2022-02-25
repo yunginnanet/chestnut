@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"sync"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/lookup"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/packager"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/lookup"
+	"git.tcp.direct/kayos/chestnut/encoding/json/packager"
+	"git.tcp.direct/kayos/chestnut/log"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/modern-go/reflect2"
 )
@@ -84,7 +84,7 @@ func (ext *DecoderExtension) Unseal(encoded []byte) ([]byte, error) {
 	ext.mu.Lock()
 	defer ext.mu.Unlock()
 	ext.log.Debugf("unsealing encoded %d bytes", len(encoded))
-	/// must do this first
+	// / must do this first
 	if ext.open {
 		ext.log.Debug("decoder is open, closing it")
 		ext.close()

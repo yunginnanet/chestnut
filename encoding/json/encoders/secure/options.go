@@ -1,9 +1,9 @@
 package secure
 
 import (
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut/encoding/compress"
+	"git.tcp.direct/kayos/chestnut/encoding/compress/zstd"
+	"git.tcp.direct/kayos/chestnut/log"
 )
 
 // Options provides a default implementation for common options for a secure encoding.
@@ -23,7 +23,7 @@ type Options struct {
 
 // DefaultOptions represents the recommended default Options for secure encoding.
 var DefaultOptions = Options{
-	log: log.Log,
+	log: log.NewZerologLoggerWithLevel(log.DebugLevel),
 }
 
 // A Option sets options such as compression or sparse decoding.

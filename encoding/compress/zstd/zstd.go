@@ -1,7 +1,7 @@
 package zstd
 
 import (
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress"
+	"git.tcp.direct/kayos/chestnut/encoding/compress"
 	"github.com/klauspost/compress/zstd"
 )
 

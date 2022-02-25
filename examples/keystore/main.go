@@ -7,12 +7,12 @@ import (
 	"os"
 	"path/filepath"
 
+	"git.tcp.direct/kayos/chestnut"
+	"git.tcp.direct/kayos/chestnut/encryptor/aes"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/keystore"
+	"git.tcp.direct/kayos/chestnut/storage/nuts"
 	"github.com/btcsuite/btcd/btcec"
-	"git.tcp.direct/kayos/chestnut-bitcask"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/aes"
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
-	"git.tcp.direct/kayos/chestnut-bitcask/keystore"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage/nuts"
 )
 
 func main() {

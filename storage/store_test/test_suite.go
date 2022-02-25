@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage"
+	"git.tcp.direct/kayos/chestnut/log"
+	"git.tcp.direct/kayos/chestnut/storage"
 )
 
 type testCase struct {
@@ -250,7 +250,6 @@ func (ts *storeTestSuite) TestStoreWithLogger() {
 	logOpts := []LoggerOpt{
 		storage.WithZerologLogger,
 		storage.WithStdLogger,
-		storage.WithZapLogger,
 	}
 	path := ts.T().TempDir()
 	for _, level := range levels {

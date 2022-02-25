@@ -110,3 +110,5 @@ func NewZerologLoggerWithLevel(level Level) Zlog {
 	zerolog.SetGlobalLevel(levelTranslate[level])
 	return Zlog{l: &lg}
 }
+
+var Log = NewZerologLoggerWithLevel(DebugLevel)

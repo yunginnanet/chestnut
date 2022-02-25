@@ -2,13 +2,15 @@ package secure
 
 import (
 	"errors"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
 	"reflect"
 	"testing"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/packager"
+	"git.tcp.direct/kayos/chestnut/log"
+
 	"github.com/stretchr/testify/assert"
+
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/json/packager"
 )
 
 type encoderTest struct {
@@ -44,7 +46,7 @@ func TestSecureEncoderExtension(t *testing.T) {
 			// register encoding extension
 			encoderExt := NewSecureEncoderExtension(testEncoderID,
 				PassthroughEncryption,
-				WithLogger(log.Log),
+				WithLogger(log.NewZerologLoggerWithLevel(log.DebugLevel)),
 				test.compressed)
 			encoder.RegisterExtension(encoderExt)
 			// open the encoder

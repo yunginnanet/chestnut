@@ -3,8 +3,8 @@ package json
 import (
 	"errors"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/secure"
 )
 
 // SecureUnmarshal decrypts & parses the JSON-encoded data returned by SecureUnmarshal and stores

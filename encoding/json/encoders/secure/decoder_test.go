@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/compress/zstd"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/compress/zstd"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,8 +3,8 @@ package json
 import (
 	"errors"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/secure"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/secure"
 )
 
 // SecureMarshal returns an encrypted JSON encoding of v. It adds support for sparse encryption and

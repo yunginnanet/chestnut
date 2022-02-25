@@ -4,7 +4,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 )
 
 type streamCipher func(block cipher.Block, iv []byte) cipher.Stream

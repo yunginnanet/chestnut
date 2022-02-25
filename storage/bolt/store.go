@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
-	"git.tcp.direct/kayos/chestnut-bitcask/storage"
+	"git.tcp.direct/kayos/chestnut/log"
+	"git.tcp.direct/kayos/chestnut/storage"
 	jsoniter "github.com/json-iterator/go"
 	bolt "go.etcd.io/bbolt"
 )

@@ -7,12 +7,12 @@ import (
 	"reflect"
 	"sync"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/hash"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/encoders/lookup"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/json/packager"
-	"git.tcp.direct/kayos/chestnut-bitcask/encoding/tags"
-	"git.tcp.direct/kayos/chestnut-bitcask/log"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/hash"
+	"git.tcp.direct/kayos/chestnut/encoding/json/encoders/lookup"
+	"git.tcp.direct/kayos/chestnut/encoding/json/packager"
+	"git.tcp.direct/kayos/chestnut/encoding/tags"
+	"git.tcp.direct/kayos/chestnut/log"
 	"github.com/json-iterator/go"
 )
 
@@ -86,7 +86,7 @@ func (ext *EncoderExtension) Seal(encoded []byte) ([]byte, error) {
 	ext.mu.Lock()
 	defer ext.mu.Unlock()
 	ext.log.Debugf("sealing %d encoded bytes: %s", len(encoded), string(encoded))
-	/// must do this first
+	// / must do this first
 	if ext.open {
 		ext.log.Debug("encoder is open, closing it")
 		ext.close()

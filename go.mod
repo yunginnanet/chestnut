@@ -1,4 +1,4 @@
-module git.tcp.direct/kayos/chestnut-bitcask
+module git.tcp.direct/kayos/chestnut
 
 go 1.17
 

@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"log"
 
-	"git.tcp.direct/kayos/chestnut-bitcask/encryptor/crypto"
+	"git.tcp.direct/kayos/chestnut/encryptor/crypto"
 	"github.com/json-iterator/go"
 )
 
