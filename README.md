@@ -1,13 +1,15 @@
 # 🌰 &nbsp;Chestnut (fork)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yunginnanet/chestnut/test?style=flat-square) 
+[![Vibe Check](https://github.com/yunginnanet/chestnut/actions/workflows/go.yml/badge.svg)](https://github.com/yunginnanet/chestnut/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yunginnanet/chestnut?style=flat-square&)](https://goreportcard.com/report/github.com/yunginnanet/chestnut) 
-[![Codecov branch](https://img.shields.io/codecov/c/github/yunginnanet/chestnut/master?style=flat-square&token=7REY4BDPHW)](https://codecov.io/gh/yunginnanet/chestnut)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/yunginnanet/chestnut?style=flat-square) 
 [![GitHub](https://img.shields.io/github/license/yunginnanet/chestnut?style=flat-square)](https://github.com/yunginnanet/chestnut/blob/master/LICENSE)
 
+### Support the original author:
+
 [![Buy OP A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-☕-6F4E37?style=flat-square)](https://www.buymeacoffee.com/jrapoport)
 
+---
 
 Chestnut is encrypted storage for Go. The goal was an easy to use encrypted 
 store with helpful features that was quick to set up, but highly flexible. 
