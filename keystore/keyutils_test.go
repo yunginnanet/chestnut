@@ -7,7 +7,6 @@ import (
 	"crypto/rsa"
 	"testing"
 
-	"github.com/btcsuite/btcd/btcec"
 	"github.com/libp2p/go-libp2p-core/crypto"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/ed25519"
@@ -64,17 +63,6 @@ func TestPrivKeyToEd25519PrivateKey(t *testing.T) {
 	})
 }
 
-func TestPrivKeyToBTCECPrivateKey(t *testing.T) {
-	privKey, _, err := crypto.GenerateSecp256k1Key(rand.Reader)
-	assert.NoError(t, err)
-	testPrivKeyToPrivateKey(t, privKey, func() interface{} {
-		return PrivKeyToBTCECPrivateKey(privKey)
-	})
-	assert.Panics(t, func() {
-		_ = PrivKeyToBTCECPrivateKey(nil)
-	})
-}
-
 func TestRSAPrivateKeyToPrivKey(t *testing.T) {
 	rsaKey, err := rsa.GenerateKey(rand.Reader, 2048)
 	assert.NoError(t, err)
@@ -105,17 +93,5 @@ func TestEd25519PrivateKeyToPrivKey(t *testing.T) {
 	})
 	assert.Panics(t, func() {
 		_ = Ed25519PrivateKeyToPrivKey(nil)
-	})
-}
-
-func TestBTCECPrivateKeyToPrivKey(t *testing.T) {
-	btcecKey, err := btcec.NewPrivateKey(btcec.S256())
-	key := (*crypto.Secp256k1PrivateKey)(btcecKey)
-	assert.NoError(t, err)
-	testPrivateKeyToPrivKey(t, key, func() crypto.PrivKey {
-		return BTCECPrivateKeyToPrivKey(btcecKey)
-	})
-	assert.Panics(t, func() {
-		_ = BTCECPrivateKeyToPrivKey(nil)
 	})
 }

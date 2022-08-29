@@ -1,8 +1,4 @@
-**this repo (chestnut-bitcask) is merely a mirror of chestnut with a bitcask storage backend (currently poorly) implemented**
-
-**AS FAR AS I KNOW THIS IS NOT WORKING** - buckets need to be implemented with bitcask first
-
-# 🌰 &nbsp;Chestnut
+# 🌰 &nbsp;Chestnut (fork)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jrapoport/chestnut/test?style=flat-square) 
 [![Go Report Card](https://goreportcard.com/badge/github.com/jrapoport/chestnut?style=flat-square&)](https://goreportcard.com/report/github.com/jrapoport/chestnut) 

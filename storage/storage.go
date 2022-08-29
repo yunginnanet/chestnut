@@ -2,6 +2,7 @@ package storage
 
 import (
 	"errors"
+	"fmt"
 )
 
 // Storage provides a management interface for a datastore.
@@ -45,11 +46,11 @@ var ErrInvalidKey = errors.New("invalid storage key")
 
 // ValidKey returns nil if the key is valid, otherwise ErrInvalidKey.
 func ValidKey(name string, key []byte) error {
-/*if name == "" {
+	if name == "" {
 		return fmt.Errorf("%w namespace: %s", ErrInvalidKey, name)
-	}*/
-/*	if len(key) <= 0 {
+	}
+	if len(key) <= 0 {
 		return fmt.Errorf("%w: %s", ErrInvalidKey, key)
-	}*/
+	}
 	return nil
 }

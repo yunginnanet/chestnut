@@ -6,10 +6,11 @@ import (
 	"os"
 	"path/filepath"
 
+	json "github.com/json-iterator/go"
+	bolt "go.etcd.io/bbolt"
+
 	"git.tcp.direct/kayos/chestnut/log"
 	"git.tcp.direct/kayos/chestnut/storage"
-	jsoniter "github.com/json-iterator/go"
-	bolt "go.etcd.io/bbolt"
 )
 
 const (
@@ -118,7 +119,7 @@ func (s *boltStore) Get(name string, key []byte) ([]byte, error) {
 
 // Save the value in v and store the result at key.
 func (s *boltStore) Save(name string, key []byte, v interface{}) error {
-	b, err := jsoniter.Marshal(v)
+	b, err := json.Marshal(v)
 	if err != nil {
 		return s.logError("save", err)
 	}
@@ -131,7 +132,7 @@ func (s *boltStore) Load(name string, key []byte, v interface{}) error {
 	if err != nil {
 		return s.logError("load", err)
 	}
-	return s.logError("load", jsoniter.Unmarshal(b, v))
+	return s.logError("load", json.Unmarshal(b, v))
 }
 
 // Has checks for a key in the store.

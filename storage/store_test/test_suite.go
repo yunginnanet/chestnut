@@ -66,7 +66,7 @@ func TestStore(t *testing.T, fn storeFunc) {
 	suite.Run(t, ts)
 }
 
-// SetupTest
+// SetupTest is a test hook that is run before each test.
 func (ts *storeTestSuite) SetupTest() {
 	ts.path = ts.T().TempDir()
 	ts.store = ts.storeFunc(ts.path)
@@ -74,13 +74,13 @@ func (ts *storeTestSuite) SetupTest() {
 	ts.NoError(err)
 }
 
-// TearDownTest
+// TearDownTest is a test hook that is run after each test.
 func (ts *storeTestSuite) TearDownTest() {
 	err := ts.store.Close()
 	ts.NoError(err)
 }
 
-// BeforeTest
+// BeforeTest is a test hook that is run before each test.
 func (ts *storeTestSuite) BeforeTest(_, testName string) {
 	switch testName {
 	case "TestStorePut",
@@ -101,7 +101,7 @@ func (ts *storeTestSuite) TestInvalidPath() {
 	})
 }
 
-// TestStorePut
+// TestStorePut tests putting a key/value into the store.
 func (ts *storeTestSuite) TestStorePut() {
 	for i, test := range putTests {
 		err := ts.store.Put(test.name, []byte(test.key), []byte(test.value))
@@ -109,13 +109,13 @@ func (ts *storeTestSuite) TestStorePut() {
 	}
 }
 
-// TestStoreSave
+// TestStoreSave tests saving an object.
 func (ts *storeTestSuite) TestStoreSave() {
 	err := ts.store.Save(testName, []byte(testKey), testObj)
 	ts.NoError(err)
 }
 
-// TestStoreLoad
+// TestStoreLoad tests loading an object.
 func (ts *storeTestSuite) TestStoreLoad() {
 	ts.T().Run("Setup", func(t *testing.T) {
 		ts.TestStoreSave()
@@ -126,7 +126,7 @@ func (ts *storeTestSuite) TestStoreLoad() {
 	ts.Equal(testObj, to)
 }
 
-// TestStoreGet
+// TestStoreGet tests getting the value of a key.
 func (ts *storeTestSuite) TestStoreGet() {
 	for i, test := range tests {
 		value, err := ts.store.Get(test.name, []byte(test.key))
@@ -136,7 +136,7 @@ func (ts *storeTestSuite) TestStoreGet() {
 	}
 }
 
-// TestStoreHas
+// TestStoreHas tests checking for a key's existence.
 func (ts *storeTestSuite) TestStoreHas() {
 	for i, test := range tests {
 		has, _ := ts.store.Has(test.name, []byte(test.key))
@@ -144,7 +144,7 @@ func (ts *storeTestSuite) TestStoreHas() {
 	}
 }
 
-// TestStoreList
+// TestStoreList tests listing keys.
 func (ts *storeTestSuite) TestStoreList() {
 	const listLen = 100
 	list := make([]string, listLen)
@@ -166,7 +166,7 @@ func (ts *storeTestSuite) TestStoreList() {
 	ts.Equal(list, strKeys)
 }
 
-// TestStoreListAll
+// TestStoreListAll tests listing all keys in the store.
 func (ts *storeTestSuite) TestStoreListAll() {
 	const listLen = 100
 	list := make([]string, listLen)
@@ -190,7 +190,7 @@ func (ts *storeTestSuite) TestStoreListAll() {
 	ts.Equal(list, keys)
 }
 
-// TestStoreDelete
+// TestStoreDelete tests removing an object from the store.
 func (ts *storeTestSuite) TestStoreDelete() {
 	var deleteTests = []struct {
 		key string
@@ -210,7 +210,7 @@ func (ts *storeTestSuite) TestStoreDelete() {
 	}
 }
 
-// TestStoreExport
+// TestStoreExport tests exporting the store to a file.
 func (ts *storeTestSuite) TestStoreExport() {
 	exTests := []struct {
 		path string
@@ -237,7 +237,7 @@ func (ts *storeTestSuite) TestStoreExport() {
 	}
 }
 
-// TestStoreWithLogger
+// TestStoreWithLogger tests the store with a logger.
 func (ts *storeTestSuite) TestStoreWithLogger() {
 	levels := []log.Level{
 		log.DebugLevel,
