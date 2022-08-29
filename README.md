@@ -1,12 +1,12 @@
 # 🌰 &nbsp;Chestnut (fork)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jrapoport/chestnut/test?style=flat-square) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/jrapoport/chestnut?style=flat-square&)](https://goreportcard.com/report/github.com/jrapoport/chestnut) 
-[![Codecov branch](https://img.shields.io/codecov/c/github/jrapoport/chestnut/master?style=flat-square&token=7REY4BDPHW)](https://codecov.io/gh/jrapoport/chestnut)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jrapoport/chestnut?style=flat-square) 
-[![GitHub](https://img.shields.io/github/license/jrapoport/chestnut?style=flat-square)](https://github.com/jrapoport/chestnut/blob/master/LICENSE)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yunginnanet/chestnut/test?style=flat-square) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/yunginnanet/chestnut?style=flat-square&)](https://goreportcard.com/report/github.com/yunginnanet/chestnut) 
+[![Codecov branch](https://img.shields.io/codecov/c/github/yunginnanet/chestnut/master?style=flat-square&token=7REY4BDPHW)](https://codecov.io/gh/yunginnanet/chestnut)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/yunginnanet/chestnut?style=flat-square) 
+[![GitHub](https://img.shields.io/github/license/yunginnanet/chestnut?style=flat-square)](https://github.com/yunginnanet/chestnut/blob/master/LICENSE)
 
-[![Buy Me A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-☕-6F4E37?style=flat-square)](https://www.buymeacoffee.com/jrapoport)
+[![Buy OP A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-☕-6F4E37?style=flat-square)](https://www.buymeacoffee.com/jrapoport)
 
 
 Chestnut is encrypted storage for Go. The goal was an easy to use encrypted 
@@ -19,6 +19,9 @@ be backed by a storage solution.
 
 Currently, Chestnut supports [BBolt](https://github.com/etcd-io/bbolt) and
 [NutsDB](https://github.com/xujiajun/nutsdb) as backing storage.
+
+This fork adds support for [Bitcask](https://git.mills.io/prologic/bitcask) wrapped in
+a provided [layer of abstraction](https://git.tcp.direct/tcp.direct/database).
 
 ## Table of Contents
 - [Getting Started](#getting-started)
@@ -92,7 +95,7 @@ Currently, Chestnut supports [BBolt](https://github.com/etcd-io/bbolt) and
 To start using Chestnut, install Go (version 1.11+) and run `go get`:
 
 ```sh
-$ go get -u github.com/jrapoport/chestnut
+$ go get -u github.com/yunginnanet/chestnut
 ```
 
 ### Importing Chestnut
@@ -101,10 +104,10 @@ To use Chestnut as an encrypted store, import as:
 
 ```go
 import (
-  "github.com/jrapoport/chestnut"
-  "github.com/jrapoport/chestnut/encryptor/aes"
-  "github.com/jrapoport/chestnut/encryptor/crypto"
-  "github.com/jrapoport/chestnut/storage/nuts"
+  "github.com/yunginnanet/chestnut"
+  "github.com/yunginnanet/chestnut/encryptor/aes"
+  "github.com/yunginnanet/chestnut/encryptor/crypto"
+  "github.com/yunginnanet/chestnut/storage/nuts"
 )
 
 // use nutsdb for storage
@@ -148,7 +151,7 @@ To use bbolt for a backing store you can import Chestnut's `bolt` package
 and call `bolt.NewStore()`:
 
 ```go
-import "github.com/jrapoport/chestnut/storage/bolt"
+import "github.com/yunginnanet/chestnut/storage/bolt"
 
 //use or create a bbolt backing store at path
 store := bolt.NewStore(path)
@@ -167,7 +170,7 @@ To use nutsDB for a backing store you can import Chestnut's `nuts` package
 and call `nuts.NewStore()`:
 
 ```go
-import "github.com/jrapoport/chestnut/storage/nuts"
+import "github.com/yunginnanet/chestnut/storage/nuts"
 
 //use or create a nutsdb backing store at path
 store := nuts.NewStore(path)
@@ -900,11 +903,11 @@ Using the Keystore is straight forward:
 package main
 
 import (
-	"github.com/jrapoport/chestnut"
-	"github.com/jrapoport/chestnut/encryptor/aes"
-	"github.com/jrapoport/chestnut/encryptor/crypto"
-	"github.com/jrapoport/chestnut/keystore"
-	"github.com/jrapoport/chestnut/storage/nuts"
+	"github.com/yunginnanet/chestnut"
+	"github.com/yunginnanet/chestnut/encryptor/aes"
+	"github.com/yunginnanet/chestnut/encryptor/crypto"
+	"github.com/yunginnanet/chestnut/keystore"
+	"github.com/yunginnanet/chestnut/storage/nuts"
 )
 
 // use nutsdb
@@ -1026,8 +1029,8 @@ import (
     "log"
     "os"
 
-    "github.com/jrapoport/chestnut"
-    cnlog "github.com/jrapoport/chestnut/log"
+    "github.com/yunginnanet/chestnut"
+    cnlog "github.com/yunginnanet/chestnut/log"
 )
 
 logger := cnlog.NewStdLogger(log.InfoLevel os.Stderr, "", log.LstdFlags)

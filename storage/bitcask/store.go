@@ -2,7 +2,6 @@ package bitcask
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -12,6 +11,7 @@ import (
 	"strings"
 
 	"git.tcp.direct/tcp.direct/database/bitcask"
+	jsoniter "github.com/json-iterator/go"
 
 	"github.com/mholt/archiver/v4"
 
@@ -134,7 +134,7 @@ func (st *bitcaskStore) Open() (err error) {
 					if err != nil {
 						return fmt.Errorf("io err stores.json: %w", err)
 					}
-					err = json.Unmarshal(storesData, &storeNames)
+					err = jsoniter.Unmarshal(storesData, &storeNames)
 					if err != nil {
 						return fmt.Errorf("unmarshal stores.json: %w", err)
 					}
@@ -226,7 +226,7 @@ func (st *bitcaskStore) Save(name string, key []byte, v interface{}) error {
 	if len(key) < 1 {
 		return st.logError("save", errors.New("key cannot be empty"))
 	}
-	b, err := json.Marshal(v)
+	b, err := jsoniter.Marshal(v)
 	if err != nil {
 		return st.logError("save", err)
 	}
@@ -242,7 +242,7 @@ func (st *bitcaskStore) Load(name string, key []byte, v interface{}) error {
 	if err != nil {
 		return st.logError("load", err)
 	}
-	return st.logError("load", json.Unmarshal(b, v))
+	return st.logError("load", jsoniter.Unmarshal(b, v))
 }
 
 // Has checks for a key in the store.
@@ -298,7 +298,7 @@ func (st *bitcaskStore) writeAllStoreNames() error {
 		return st.logError("export", err)
 	}
 	var namesJSON []byte
-	namesJSON, err = json.Marshal(storeNames)
+	namesJSON, err = jsoniter.Marshal(storeNames)
 	if err != nil {
 		return st.logError("export", err)
 	}
